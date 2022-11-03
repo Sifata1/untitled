@@ -76,9 +76,13 @@ public class StringLoops
     public int countString(String searchString, String origString) {
         int count = 0;
         String s = origString;
+        int max = origString.length() - searchString.length();
         int len = searchString.length();
-        for (int i = 0; s.length() <= origString.length(); i++) {
-
+        for (int i = 0; i <= max; i++) {
+            String substring = origString.substring(i, i + searchString.length());
+            if (substring.equals(searchString)) {
+                count++;
+            }
         }
         return count;
 
