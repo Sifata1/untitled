@@ -78,6 +78,9 @@ public class StringLoops
         String s = origString;
         int max = origString.length() - searchString.length();
         int len = searchString.length();
+
+
+
         for (int i = 0; i <= max; i++) {
             String substring = origString.substring(i, i + searchString.length());
             if (substring.equals(searchString)) {
