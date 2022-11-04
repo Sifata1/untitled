@@ -25,7 +25,7 @@ public class SecurePassword
     */
     public boolean isSecure()
     {
-        if (password.isLongEnough)
+
     }
 
     /* Returns a String that contains information about the security status of the
