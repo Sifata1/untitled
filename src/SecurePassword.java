@@ -47,7 +47,14 @@ public class SecurePassword
     */
     public String status()
     {
-
+        if (this.isSecure()) {
+            return "Password is secure";
+        } else {
+            if (this.isLongEnough() != true) {
+                return "This password must be at least 8 characters";
+            }
+            if ()
+        }
     }
 
 
