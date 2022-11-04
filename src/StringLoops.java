@@ -1,7 +1,7 @@
-public class StringLoops
-{
+public class StringLoops {
     // default constructor; no instance variables
-    public StringLoops() { }
+    public StringLoops() {
+    }
 
     /* Returns the number of times "character" appears in "searchString"
        This should be case sensitive!
@@ -32,12 +32,11 @@ public class StringLoops
      - if origString = "hello!" this method returns "!olleh"
      - if origString = "Apples and bananas" this method returns "sananab dna selppA"
     */
-    public String reverseString(String origString)
-    {
+    public String reverseString(String origString) {
         String orig = origString;
-        String s ="";
-        for (int i=0; i<origString.length();i++) {
-            s = orig.substring(i,i+1) + s;
+        String s = "";
+        for (int i = 0; i < origString.length(); i++) {
+            s = orig.substring(i, i + 1) + s;
         }
         /* to be implemented */
         return s;
@@ -50,23 +49,21 @@ public class StringLoops
      - if origString = "hello!" this method returns "!olleh"
      - if origString = "Apples and bananas" this method returns "sananab dna selppA"
     */
-    public String reverseString2(String origString)
-    {
+    public String reverseString2(String origString) {
         String orig = origString;
-        String s ="";
-        for (int i=origString.length(); i<0;i--) {
-            s = orig.substring(i,i+1) + s;
+        String s = "";
+        for (int i = origString.length(); i < 0; i--) {
+            s = orig.substring(i, i + 1) + s;
         }
         /* to be implemented */
         return s;
     }
 
-    public int countVowels(String origString)
-    {
+    public int countVowels(String origString) {
         int count = 0;
         for (int i = 0; i < origString.length(); i++) {
             String s = origString.charAt(i) + "";
-            if (s.equals("a") || s.equals("e") || s.equals("i")|| s.equals("o") || s.equals("u") || s.equals("A") || s.equals("E") || s.equals("I")|| s.equals("O") || s.equals("U"))  {
+            if (s.equals("a") || s.equals("e") || s.equals("i") || s.equals("o") || s.equals("u") || s.equals("A") || s.equals("E") || s.equals("I") || s.equals("O") || s.equals("U")) {
                 count++;
             }
         }
@@ -74,21 +71,18 @@ public class StringLoops
     }
 
     public int countString(String searchString, String origString) {
-        int count = 0;
-        String s = origString;
-        int max = origString.length() - searchString.length();
+        String lowerOrig = origString.toLowerCase();
+        String lowerSearch = searchString.toLowerCase();
         int len = searchString.length();
+        int count = 0;
 
-
-
-        for (int i = 0; i <= max; i++) {
-            String substring = origString.substring(i, i + searchString.length());
-            if (substring.equals(searchString)) {
+        for (int i = 0; i <= origString.length()-searchString.length(); i++) {
+            String s = lowerOrig.substring(i, i + lowerSearch.length());
+            if (s.indexOf(lowerSearch) != -1) {
                 count++;
             }
         }
+
         return count;
-
-
     }
 }
