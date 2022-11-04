@@ -25,7 +25,10 @@ public class SecurePassword
     */
     public boolean isSecure()
     {
-
+        if (this.isLongEnough() && this.containsDigit() && this.containsLowercase() && this.containsUppercase() && this.containsSpecialSymbol()) {
+            return true;
+        }
+        return false;
     }
 
     /* Returns a String that contains information about the security status of the
