@@ -1,16 +1,13 @@
-public class SecurePassword
-{
+public class SecurePassword {
     // instance variable
     private String password;
 
     // constructor
-    public SecurePassword(String password)
-    {
+    public SecurePassword(String password) {
         this.password = password;
     }
 
-    public void setPassword(String newPassword)
-    {
+    public void setPassword(String newPassword) {
         password = newPassword;
     }
 
@@ -23,8 +20,7 @@ public class SecurePassword
        Must satisfy ALL FIVE categories for password to be "secure"
        Return false if any of the above security requirements are not fulfilled.
     */
-    public boolean isSecure()
-    {
+    public boolean isSecure() {
         if (this.isLongEnough() && this.containsDigit() && this.containsLowercase() && this.containsUppercase() && this.containsSpecialSymbol()) {
             return true;
         }
@@ -45,18 +41,32 @@ public class SecurePassword
        "The password must be at least 8 characters
         The password must contain a special symbol: ! @ # $ % ^ & * ?"
     */
-    public String status()
-    {
+    public String status() {
+        String l = "";
+        String u = "";
+        String lo = "";
+        String d = "";
+        String s = "";
         if (this.isSecure()) {
             return "Password is secure";
-        } else {
-            if (this.isLongEnough() != true) {
-                return "This password must be at least 8 characters";
-            }
-            if ()
         }
+        if (this.isLongEnough() != true) {
+            l = "This password must be at least 8 characters";
+        }
+        if (this.containsUppercase() != true) {
+            u = "This password must contain a uppercase character";
+        }
+        if (this.containsLowercase() != true) {
+            lo = "This password must contain a lowercase character";
+        }
+        if (this.containsDigit() != true) {
+            d = "This password must contain a digit";
+        }
+        if (this.containsSpecialSymbol() != true) {
+            s = "This password must contain a special symbol";
+        }
+        return l + u + lo + d + s;
     }
-
 
     // PRIVATE HELPER METHODS (marked "private" rather than "public")
 
@@ -120,7 +130,6 @@ public class SecurePassword
             if (password.indexOf(password.charAt(i)) != -1  ) {
                 count++;
             }
-            i++;
 
         }
         if (count >= 1){

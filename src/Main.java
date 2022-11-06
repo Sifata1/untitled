@@ -24,5 +24,9 @@ public class Main
        Note that, as the user provides updated passwords, you will need to update the
        password in your SecurePassword object using the setter method, .setPassword(),
     */
+        SecurePassword pw = new SecurePassword(password);
+        if (pw.isSecure() == false) {
+            pw.status();
+        }
     }
 }
