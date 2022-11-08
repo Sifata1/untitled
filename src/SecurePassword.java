@@ -42,30 +42,27 @@ public class SecurePassword {
         The password must contain a special symbol: ! @ # $ % ^ & * ?"
     */
     public String status() {
-        String l = "";
-        String u = "";
-        String lo = "";
-        String d = "";
         String s = "";
+        String secure;
         if (this.isSecure()) {
             return "Password is secure";
         }
         if (this.isLongEnough() != true) {
-            l = "This password must be at least 8 characters";
+            s= "This password must be at least 8 characters";
         }
         if (this.containsUppercase() != true) {
-            u = "This password must contain a uppercase character";
+            s= s + "\nThis password must contain a uppercase character";
         }
         if (this.containsLowercase() != true) {
-            lo = "This password must contain a lowercase character";
+            s=s+ "\nThis password must contain a lowercase character";
         }
         if (this.containsDigit() != true) {
-            d = "This password must contain a digit";
+            s= s+ "\nThis password must contain a digit";
         }
         if (this.containsSpecialSymbol() != true) {
-            s = "This password must contain a special symbol";
+            s = s + "\nThis password must contain a special symbol: ! @ # $ % ^ & * ?";
         }
-        return l + u + lo + d + s;
+        return s;
     }
 
     // PRIVATE HELPER METHODS (marked "private" rather than "public")
@@ -123,17 +120,13 @@ public class SecurePassword {
        this method will find two occurrences (F and A) and return true, since two
        is at least one
      */
-    private boolean checkString(String characterString)
+    public boolean checkString(String characterString)
     {
-        int count = 0;
-        for (int i = 0; i != password.length(); i++) {
-            if (password.indexOf(password.charAt(i)) != -1  ) {
-                count++;
+        for (int i =0; password.length()> i; i++) {
+            String s = String.valueOf(password.charAt(i));
+            if (characterString.contains(s) ) {
+                return true;
             }
-
-        }
-        if (count >= 1){
-            return true;
         }
         return false;
     }

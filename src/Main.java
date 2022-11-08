@@ -1,9 +1,7 @@
 import java.util.Scanner;
 
-public class Main
-{
-    public static void main(String[] args)
-    {
+public class Main {
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Choose a secure password that meets these requirements:");
@@ -20,13 +18,20 @@ public class Main
        if it’s secure (using isSecure()), and if not, provide them a status update
        (using status()) and prompt them to try again until they have a password that
        meets all requirements.  Then inform them, "Password is secure" and end.
-
+       System.out.print("\nEnter your secure password: ");
        Note that, as the user provides updated passwords, you will need to update the
        password in your SecurePassword object using the setter method, .setPassword(),
     */
         SecurePassword pw = new SecurePassword(password);
-        if (pw.isSecure() == false) {
-            pw.status();
+        if (pw.isSecure() != true) {
+            while (pw.isSecure() != true) {
+                System.out.println(pw.status());
+                System.out.print("\nEnter your secure password: ");
+                pw.setPassword(scanner.nextLine());
+            }
+            System.out.println(pw.status());
         }
     }
 }
+
+
